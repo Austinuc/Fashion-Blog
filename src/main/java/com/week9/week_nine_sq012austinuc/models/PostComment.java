@@ -25,7 +25,8 @@ public class PostComment {
     private String firstName;
 
     @Column(nullable = false)
-    private String email;
+    private String userName;
+
 
     private String description;
 
@@ -39,16 +40,4 @@ public class PostComment {
     @UpdateTimestamp
     private LocalDateTime updatedAt;
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
-        PostComment that = (PostComment) o;
-        return commentId != null && Objects.equals(commentId, that.commentId);
-    }
-
-    @Override
-    public int hashCode() {
-        return getClass().hashCode();
-    }
 }

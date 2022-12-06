@@ -10,8 +10,8 @@ import java.util.Optional;
 @Transactional
 public interface PostLikeRepository extends JpaRepository<PostLike, Long> {
 
-    boolean existsByEmailAndPostId(String email, Long postId);
-    void deletePostLikeByEmailAndPostId(String email, Long postId);
+    boolean existsByUserNameAndPostId(String userName, Long postId);
+    void deletePostLikeByUserNameAndPostId(String userName, Long postId);
 
     List<PostLike> findAllByPostId(Long postId);
 }

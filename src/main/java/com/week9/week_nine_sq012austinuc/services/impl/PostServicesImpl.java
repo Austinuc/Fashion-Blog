@@ -70,7 +70,7 @@ public class PostServicesImpl implements PostServices {
     public PostResponseDto commentOnAPost(CommentDto commentDto) {
         PostComment comment = new PostComment();
         BeanUtils.copyProperties(commentDto, comment);
-        if (comment.getFirstName().isEmpty()) {
+        if (comment.getFirstName() == null) {
             comment.setFirstName("Anonymous");
         }
 
@@ -95,11 +95,11 @@ public class PostServicesImpl implements PostServices {
     public PostResponseDto likeAPost(LikeDto likeDto) {
         Post post = postRepository.findById(likeDto.getPostId()).orElse(new Post());
         PostLike like = PostLike.builder()
-                .email(likeDto.getEmail())
+                .userName(likeDto.getUserName())
                 .postId(likeDto.getPostId())
                 .build();
-        if (postLikeRepository.existsByEmailAndPostId(like.getEmail(), post.getPostId())) {
-            postLikeRepository.deletePostLikeByEmailAndPostId(like.getEmail(), post.getPostId());
+        if (postLikeRepository.existsByUserNameAndPostId(like.getUserName(), post.getPostId())) {
+            postLikeRepository.deletePostLikeByUserNameAndPostId(like.getUserName(), post.getPostId());
         } else {
             postLikeRepository.save(like);
         }
@@ -128,6 +128,7 @@ public class PostServicesImpl implements PostServices {
     public LikeResponseDto getPostLikes(Long postId) {
         Integer likes = Math.toIntExact(postLikeRepository.findAllByPostId(postId).stream()
                 .map(PostLike::getLikeId).count());
+
 
         return LikeResponseDto.builder().likeCount(likes).build();
     }

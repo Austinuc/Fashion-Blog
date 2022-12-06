@@ -17,11 +17,8 @@ public class CommentDto {
     @NotNull @Schema(example = "3")
     private Long postId;
 
-    @NotNull @Schema(example = "Uche")
-    private String firstName;
-
-    @NotNull @Schema(example = "commenter@email.com")
-    private String email;
+    @NotNull @Schema(example = "austin")
+    private String userName;
 
     @NotNull @Schema(example = "type your comments here...")
     private String description;

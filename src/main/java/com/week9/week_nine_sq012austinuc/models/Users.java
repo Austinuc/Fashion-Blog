@@ -29,17 +29,4 @@ public class Users {
     @Column(unique = true, nullable = false)
     private String email;
     private String phoneNumber;
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
-        Users users = (Users) o;
-        return userId != null && Objects.equals(userId, users.userId);
-    }
-
-    @Override
-    public int hashCode() {
-        return getClass().hashCode();
-    }
 }

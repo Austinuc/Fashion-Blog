@@ -7,10 +7,9 @@ import com.week9.week_nine_sq012austinuc.dtos.requestDtos.UsersDto;
 import com.week9.week_nine_sq012austinuc.services.impl.UsersServicesImpl;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import javax.servlet.http.HttpSession;
 
 //@Slf4j
 @RestController
@@ -41,5 +40,11 @@ public class UsersController {
         UserResponseDto userResponseDto = usersServices.login(userLoginDto);
 //        log.debug("User Login successful");
         return new ApiResponseEntity<>(userResponseDto, "Login was successful", HttpStatus.ACCEPTED);
+    }
+
+    @GetMapping("logout")
+    public ApiResponseEntity<String> userLogout() {
+
+        return new ApiResponseEntity<>(usersServices.logout(), "Login again to proceed", HttpStatus.OK);
     }
 }

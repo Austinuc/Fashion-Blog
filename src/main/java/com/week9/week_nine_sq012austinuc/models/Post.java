@@ -45,17 +45,4 @@ public class Post {
     @UpdateTimestamp
     private LocalDateTime updatedAt;
 
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
-        Post post = (Post) o;
-        return postId != null && Objects.equals(postId, post.postId);
-    }
-
-    @Override
-    public int hashCode() {
-        return getClass().hashCode();
-    }
 }

@@ -18,12 +18,13 @@ public class UsersDto {
     private String firstName;
     @NotNull @Schema(example = "Igboke")
     private String lastName;
+    @NotNull @Schema(example = "austin")
+    private String userName;
 
     @NotNull @Schema(example = "austin@gmail.com")
     private String email;
     @NotNull @Schema(example = "1234")
     private String password;
-
     @NotNull @Schema(example = "1234")
     private String confirmPassword;
 

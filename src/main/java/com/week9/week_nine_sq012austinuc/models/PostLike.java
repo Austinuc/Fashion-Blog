@@ -21,23 +21,9 @@ public class PostLike {
     private Long likeId;
 
     @Column(nullable = false)
-    private String email;
+    private String userName;
 
     @Column(nullable = false)
     private Long postId;
 
-
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
-        PostLike postLike = (PostLike) o;
-        return likeId != null && Objects.equals(likeId, postLike.likeId);
-    }
-
-    @Override
-    public int hashCode() {
-        return getClass().hashCode();
-    }
 }

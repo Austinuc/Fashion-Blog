@@ -14,8 +14,8 @@ import javax.validation.constraints.NotNull;
 @NoArgsConstructor
 public class LikeDto {
 
-    @NotNull @Schema(example = "anonymous@gmail.com")
-    private String email;
+    @NotNull @Schema(example = "austin")
+    private String userName;
 
     @NotNull @Schema(example = "5")
     private Long postId;
