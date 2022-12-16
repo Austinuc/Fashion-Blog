@@ -12,7 +12,7 @@ services:
     volumes:
       - fashion-blog-pg-data:/var/lib/postgresql/data/fashionBlog
     ports:
-      - "5435:5432"
+      - "5432:5432"
     networks:
       - postgres-con
   pgadmin:
