@@ -80,6 +80,7 @@ public class UsersServicesImpl implements UsersServices {
         return userResponseDto;
     }
 
+    @Override
     public String logout() {
         httpSession.invalidate();
         LOGGER.info("Login out a user");
